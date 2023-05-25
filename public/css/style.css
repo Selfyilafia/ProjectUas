@@ -1,0 +1,146 @@
+body {
+    padding: 0;
+    margin: 0;
+    background: url("/img/back.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+ */
+
+.jdl {
+    /* display: block; */
+    /* width: 500px; */
+    text-align: center;
+    font-size: 150%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+.wrapper {
+    position: relative;
+    width: 100%;
+}
+.inp {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    box-sizing: border-box;
+    padding-right: 30px;
+    padding-left: 30px;
+    /* padding-bottom: 1%; */
+    margin: auto;
+    margin-top: 0;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+.inp2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 1%;
+    margin: auto;
+    margin-top: 0;
+    border: none;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    text-align: center;
+}
+.btn-reset {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-submit {
+    position: absolute;
+    top: 0;
+    right: 5%;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-reset2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-submit2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+.btn-reset img {
+    width: 20px;
+}
+.btn-submit img {
+    width: 20px;
+}
+.toggle {
+    background-image: linear-gradient(to right, orange, white);
+}
+.coba,
+#offcanvasExample {
+    background-color: rgba(233, 85, 36, 0.911);
+}
+
+.containerk {
+    position: absolute;
+    width: 77.5%;
+    height: 500px;
+    overflow: hidden;
+}
+
+#myAudio,
+#myGif {
+    position: absolute;
+    z-index: 999;
+    top: -50px;
+    right: -800px;
+    width: 100%;
+    height: 500px;
+    transition: right 1.7s;
+    overflow: scroll;
+}
+
+.show-gif #myGif {
+    right: 100%;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 40px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
