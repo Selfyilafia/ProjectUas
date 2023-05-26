@@ -1,4 +1,3 @@
-
 @extends('layouts.main')
 @section('container')
 
@@ -7,6 +6,11 @@
             <div class="col-md-10 mb-4" style="opacity: 90%;">
                 <div class="card">
                     <img src="https://source.unsplash.com/1200x500?web" class="card-img-top" alt="">
+                    <div class="mx-3">
+                        <a href="/dashboard" class=" mt-2 btn btn-success"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> Kembali</a>
+                        <a href="" class=" mt-2 btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i> Edit</a>
+                        <a href="" class=" mt-2 btn btn-danger"><i class="fa-solid fa-trash" style="color: #000000;"></i> Hapus</a>
+                    </div>
                     <div class="card-body">
                         <h2 class="card-title mb-3">{{ $post->title }}</h2> 
 
@@ -24,13 +28,10 @@
                             {!! $post->body !!}
                         </article>
                     </div>
-                    <div class="mx-3">
-                        <footer class="footer mb-4">
-                            <a href="/posts" class=" mt-2 btn btn-primary">Kembali ke Home</a>
-                        </footer>
-                    </div>
+                    
                 </div>
             </div>
     </div>
 </div>
+
 @endsection

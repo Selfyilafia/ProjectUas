@@ -29,7 +29,7 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Dashboard Saya</h6>
+                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Postingan Saya</h6>
                     </div>
                   </div>  
                   <div class="col-2 d-flex align-items-center justify-content-center">
@@ -91,7 +91,7 @@
               </a>
             </li>
           </fieldset>
-            <li class="nav-item d-flex align-items-center justify-content-end">
+            {{-- <li class="nav-item d-flex align-items-center justify-content-end">
                 <div class="wrapper">
                     <form action="/posts">
                       @if (request('category'))
@@ -109,7 +109,7 @@
                         </button>
                     </form>
                 </div>
-              </li>
+            </li> --}}
           </ul>
         </div>
         
