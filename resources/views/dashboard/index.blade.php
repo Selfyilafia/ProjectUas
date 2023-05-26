@@ -4,8 +4,8 @@
      <h1 class="text-center">Postingan {{ auth()->user()->name }}</h1>
 </div>
 
-<div class="table-responsive pb-0" >
-    <table class="table table-striped table-sm text-white table-dark">
+<div class="table-responsive">
+    <table class="table table-striped-columns table-sm table-dark">
       <thead class="text-center">
         <tr>
           <th scope="col">No</th>
