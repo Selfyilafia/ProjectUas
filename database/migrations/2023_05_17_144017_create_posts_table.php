@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');
-            $table->string('status')->nullable();
-            $table->timestamp('published_at')->nullable();
+            $table->enum('status',['Gagal','Diproses','Selesai'])->default('Gagal');
             $table->timestamps();
         });
     }
