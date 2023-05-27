@@ -31,8 +31,12 @@
           <td class="text-white" style="vertical-align: middle">{{ $post->condition->name }}</td>
           <td style="vertical-align: middle; width:max-content ">
             <a href="/dashboard/{{ $post->slug }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
-            <a href="/dashboard/{{ $post->id }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-            <a href="/dashboard/{{ $post->id }}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>
+            <a href="/dashboard/{{ $post->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+            <form action="dashboard/delete/{{ $post->slug }}" method="post" class="d-inline">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger border-0" onclick="return confirm('Are You Sure?')"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+            </form>
           </td>
         </tr>
         @endforeach

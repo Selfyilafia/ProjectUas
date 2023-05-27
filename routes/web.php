@@ -43,3 +43,6 @@ Route::get('/dashboard/create', [DashboardController::class, 'create'])->middlew
 Route::get('/dashboard/{post:slug}', [DashboardController::class, 'show'])->middleware('auth');
 Route::get('/dashboard/create/checkSlug', [DashboardController::class, 'checkSlug'])->middleware('auth');
 Route::post('/dashboard/store', [DashboardController::class, 'store'])->middleware('auth');
+Route::get('/dashboard/{post:slug}/edit', [DashboardController::class, 'edit'])->middleware('auth');
+Route::put('/dashboard/{post:slug}/update', [DashboardController::class, 'update'])->middleware('auth');
+Route::delete('/dashboard/delete/{post:slug}', [DashboardController::class, 'destroy'])->middleware('auth');
