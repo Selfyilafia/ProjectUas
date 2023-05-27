@@ -78,7 +78,7 @@
                                 </p>
                                 <p class="card-text" style="max-height: 50px; overflow:hidden;display: -webkit-box;
                     -webkit-line-clamp: 2;
-                    -webkit-box-orient: vertical; text-overflow:ellipsis; ">{{ $post->body }}</p>
+                    -webkit-box-orient: vertical; text-overflow:ellipsis; ">{{ strip_tags($post->body) }}</p>
                             </div>
                             <footer class="footer text-end mb-4 mx-3">
                                 <a href="/posts/{{$post->slug}}" class="btn btn-primary">Lihat Selengkapnya</a>

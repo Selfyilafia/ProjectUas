@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Condition;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -27,7 +28,8 @@ class DashboardController extends Controller
     {
         return view('dashboard.create', [
             "title" => "Buat Postingan",
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'conditions' => Condition::all(),
         ]);
     }
 
@@ -36,7 +38,19 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'title' =>'required|max:255',
+            'slug' =>'required|unique:posts',
+            'category_id' =>'required',
+            'condition_id' =>'required',
+            'body' => 'required',
+        ]);
+
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Post::create($validatedData);
+
+        return redirect('/dashboard')->with('success', 'Postingan berhasil dibuat');
     }
 
     /**
