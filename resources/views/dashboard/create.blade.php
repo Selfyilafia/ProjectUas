@@ -4,10 +4,10 @@
     <h1 class="text-center">Buat Postingan Baru</h1>
 </div>
 <div class="col-lg-8">
-    <form action="store" method="post" class="mb-5">
+    <form action="store" method="post" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-          <label for="title" class="form-label">Judul</label>
+          <label for="title" class="form-label">Nama Barang</label>
           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}">
           @error('title')
               <div class="invalid-feedback">
@@ -42,6 +42,15 @@
             @endif    
             @endforeach
           </select>
+        </div>
+        <div class="mb-3">
+          <label for="image" class="form-label">Gambar</label>
+          <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image">
+          @error('image')
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
+          @enderror
         </div>
         <div class="mb-3">
           <label for="body" class="form-label">Deskripsi</label>

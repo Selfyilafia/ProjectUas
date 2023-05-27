@@ -53,7 +53,7 @@
                     <div class="col-md-4 mb-2" style="opacity: 85%;">
                         <div class="card" style="min-height: 600px; max-height :700px;overflow:hidden;">
                             <div class="position-absolute bg-dark px-3 py-2 text-white rounded">{{ $post->condition->name }}</div>
-                            <img src="https://source.unsplash.com/500x400?web" class="card-img-top" alt="">
+                            <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="min-width: 350px;max-width:500px;min-height:250px;max-height:250px;">
                             <div class="card-body">
                                 <div class="judul" style="min-height: 70px; max-height: 50px; overflow:hidden;display: -webkit-box;
                     -webkit-line-clamp: 2;

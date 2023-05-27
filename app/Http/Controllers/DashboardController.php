@@ -38,14 +38,16 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
             'title' =>'required|max:255',
             'slug' =>'required|unique:posts',
             'category_id' =>'required',
             'condition_id' =>'required',
+            'image'=>'required|image|file|max:1024',
             'body' => 'required',
         ]);
-
+        $validatedData['image'] = $request->file('image')->store('post-image');
         $validatedData['user_id'] = auth()->user()->id;
 
         Post::create($validatedData);

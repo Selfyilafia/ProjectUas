@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
             <div class="col-md-10 mb-4" style="opacity: 90%;">
                 <div class="card">
-                    <img src="https://source.unsplash.com/1200x500?web" class="card-img-top" alt="">
+                    <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width: 1000px;min-height:350px;max-height:350px;">
                     <div class="mx-3">
                         <a href="/dashboard" class=" mt-2 btn btn-success"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> Kembali</a>
                         <a href="" class=" mt-2 btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: #000000;"></i> Edit</a>
