@@ -5,6 +5,7 @@
 </div>
 
 <div class="table-responsive">
+  <a href="/dashboard/create" class="btn btn-primary mb-3">Buat Postingan Baru</a>
     <table class="table table-striped-columns table-sm table-dark">
       <thead class="text-center">
         <tr>
@@ -20,7 +21,7 @@
           <td class="text-white" style="vertical-align: middle">{{ $loop->iteration }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->title }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->category->name }}</td>
-          <td style="vertical-align: middle">
+          <td style="vertical-align: middle; width:max-content ">
             <a href="/dashboard/{{ $post->slug }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
             <a href="/dashboard/{{ $post->id }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
             <a href="/dashboard/{{ $post->id }}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: #000000;"></i></a>

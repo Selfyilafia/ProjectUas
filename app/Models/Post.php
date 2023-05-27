@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Condition;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Post extends Model
 {
     use HasFactory;
+    use Sluggable;
 
     // protected $fillable = [
     //     'title','excerpt','body'
@@ -53,4 +55,13 @@ class Post extends Model
     // {
     //     return 'slug';
     // }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

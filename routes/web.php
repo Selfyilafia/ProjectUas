@@ -39,4 +39,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard/create', [DashboardController::class, 'create'])->middleware('auth');
 Route::get('/dashboard/{post:slug}', [DashboardController::class, 'show'])->middleware('auth');
+Route::get('/dashboard/create/checkSlug', [DashboardController::class, 'checkSlug'])->middleware('auth');
+Route::post('/dashboard/store', [DashboardController::class, 'store'])->middleware('auth');
