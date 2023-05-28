@@ -2,13 +2,7 @@
 @section('container')
 <div class="container d-flex justify-content-center">
     <div class="container text-center">
-        @if (session()->has('success'))
-          
-          <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>{{ session('success') }}</strong>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-          @endif
+        
         <div class="jdl">
             <h1>UNJA</h1>
             <h3>Lapor Hilang</h3>
@@ -55,7 +49,20 @@
                 </audio>
                 <img id="myGif" src="/img/kuru1.gif" width="320" height="240" alt="GIF">
               </div> --}}
-
+              @if (session()->has('success'))
+          
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
+              @if (session()->has('gagal'))
+          
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ session('gagal') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
             <div class="row">
                 @foreach($posts as $post)
                     <div class="col-md-4 mb-2" style="opacity: 85%;">

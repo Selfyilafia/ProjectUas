@@ -36,7 +36,7 @@
               </div>
               <div class="form-floating">
                 <input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="no_hp" value="{{ old('no_hp') }}">
-                <label for="no_hp">Nomor Hp <small> (isi dengan format +62)</small></label>
+                <label for="no_hp">Nomor Hp <small> (isi dengan format 62)</small></label>
                 @error('no_hp')    
                 <div class="invalid-feedback">
                     {{ $message }}
