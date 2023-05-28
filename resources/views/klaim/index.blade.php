@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('container')
  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-     <h1 class="text-center">Pengajuan Klaim</h1>
+     <h1 class="text-center">Klaim Saya</h1>
 </div>
         @if (session()->has('success'))
           
@@ -10,7 +10,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-@if ($klaims->count())
+@if ($klaims->count())    
 <div class="table-responsive mb-3">
     <table class="table table-striped-columns table-sm table-dark">
       <thead class="text-center">
@@ -19,11 +19,9 @@
           <th scope="col">Nama Barang</th>
           <th scope="col">Kategori</th>
           <th scope="col">Kondisi</th>
-          <th scope="col">Pemilik Postingan</th>  
-          <th scope="col">Kontak Pemilik Postingan</th>  
+          <th scope="col">Pemilik Postingan</th>   
           <th scope="col">Pengaju Klaim</th>  
-          <th scope="col">Status</th>  
-          <th scope="col">Aksi</th>  
+          <th scope="col">Status</th>   
         </tr>
       </thead>
       <tbody class="text-center">
@@ -34,7 +32,6 @@
           <td class="text-white" style="vertical-align: middle">{{ $klaim->post->category->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $klaim->post->condition->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $klaim->post->user->name }}</td>
-          <td class="text-white" style="vertical-align: middle"><a href="https://wa.me/{{ $klaim->post->user->no_hp }}" class="text-decoration-none text-white btn btn-success"><i class="fa-brands fa-whatsapp" style="color: #1ae817;"></i> {{ $klaim->post->user->name }}</a></td>
           <td class="text-white" style="vertical-align: middle">{{ $klaim->user->name }}</td>
           @if ($klaim->post->status == 'Diproses')
           <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled>{{ $klaim->post->status }}</button></td>
@@ -43,31 +40,15 @@
           @else
           <td style="vertical-align: middle;"><button class="btn btn-outline-danger" disabled><strong>{{ $klaim->post->status }}</strong></button></td>
           @endif  
-          <td style="vertical-align: middle; width:max-content ">
-            <form action="klaims/selesai/{{ $klaim->id }}" method="post" class="d-inline">
-              @method('put')
-              @csrf
-              <button type="submit" class="btn btn-info"><i class="fa-solid fa-check"></i></button>
-            </form>
-            <form action="klaims/proses/{{ $klaim->id }}" method="post" class="d-inline">
-              @method('put')
-              @csrf
-            <button type="submit" class="btn btn-warning"><i class="fa-solid fa-clock"></i></button>
-            </form>
-            <form action="klaims/gagal/{{ $klaim->id }}" method="post" class="d-inline">
-              @method('put')
-              @csrf
-            <button type="submit" class="btn btn-danger"><i class="fa-solid fa-xmark" style="color: #000000;"></i></button>
-            </form>
-          </td>
+
         </tr>
         @endforeach
       </tbody>
     </table>
-  </div>
+</div>
 
-  @else
-  <p class="text-center mt-4 fs-4">Belum Ada Klaim yang Diajukan</p>  
+@else
+<p class="text-center mt-4 fs-4">Belum Ada Pengajuan Klaim</p>
 @endif        
 
 @endsection

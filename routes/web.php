@@ -50,3 +50,10 @@ Route::delete('/dashboard/delete/{post:slug}', [DashboardController::class, 'des
 
 //admin
 Route::get('/klaims', [AdminKlaimController::class, 'index'])->middleware('admin');
+Route::put('/klaims/selesai/{id}', [AdminKlaimController::class, 'selesai'])->middleware('admin');
+Route::put('/klaims/proses/{id}', [AdminKlaimController::class, 'proses'])->middleware('admin');
+Route::put('/klaims/gagal/{id}', [AdminKlaimController::class, 'gagal'])->middleware('admin');
+
+//
+Route::get('/klaim', [KlaimController::class, 'index'])->middleware('auth');
+Route::post('/klaim/{post:slug}', [KlaimController::class, 'addToKlaim'])->middleware('auth');

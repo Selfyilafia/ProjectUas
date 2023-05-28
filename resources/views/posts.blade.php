@@ -2,6 +2,13 @@
 @section('container')
 <div class="container d-flex justify-content-center">
     <div class="container text-center">
+        @if (session()->has('success'))
+          
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          @endif
         <div class="jdl">
             <h1>UNJA</h1>
             <h3>Lapor Hilang</h3>
@@ -22,7 +29,7 @@
                         </button>
                 </form>
                 
-                <button class="mt-3 btn btn-primary" onclick="playAudioAndGif()">Kuru-Kuru Button
+                {{-- <button class="mt-3 btn btn-primary" onclick="playAudioAndGif()">Kuru-Kuru Button
                 </button>
                 <button id="playButton" class="mt-3 btn btn-primary" onclick="toggleAudioLoop()">Kururin Theme Music <i class="fa-solid fa-play"></i></button>
                 <button id="stopButton" class="mt-3 btn btn-primary" onclick="toggleAudioLoop()" style="display: none;">Kururin Theme Music <i class="fa-sharp fa-solid fa-stop"></i></button>
@@ -31,22 +38,23 @@
                 <audio id="kururin" loop>
                     <source src="/img/kururin.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
-                </audio>
+                </audio> --}}
                 
 
 
             </div>
         </div>
+        
         @if ($posts->count())
         <div class="container mt-3 mb-2">
 
-            <div class="containerk" id="containerk">
+            {{-- <div class="containerk" id="containerk">
                 <audio id="myAudio">
                   <source src="/img/kuru1.mp3" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
                 <img id="myGif" src="/img/kuru1.gif" width="320" height="240" alt="GIF">
-              </div>
+              </div> --}}
 
             <div class="row">
                 @foreach($posts as $post)
@@ -91,13 +99,13 @@
             
         @else
           <p class="text-center mt-4 fs-4">Postingan Tidak Ditemukan</p>  
-          <div class="containerk" id="containerk">
+          {{-- <div class="containerk" id="containerk">
             <audio id="myAudio">
               <source src="/img/kuru1.mp3" type="audio/mpeg">
               Your browser does not support the audio element.
             </audio>
             <img id="myGif" src="/img/kuru1.gif" width="320" height="240" alt="GIF">
-          </div>
+          </div> --}}
         @endif
         <div class="d-flex justify-content-center">
             {{ $posts->links() }}

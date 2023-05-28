@@ -15,6 +15,15 @@
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are You Sure?')" style="vertical-align: bottom"><i class="fa-solid fa-trash" style="color: #000000;"></i> Hapus</button>
                           </form>
                     </div>
+                    <div class="actions mx-3 mt-3">
+                        @if ($post->status == 'Gagal')
+                        <button disabled class="btn btn-outline-info"><i class="fa-solid fa-hand fa-md"></i> Belum Diajukan</button>
+                        @elseif($post->status == 'Diproses')
+                        <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Sedang Diajukan</button>
+                        @else
+                        <button disabled class="btn btn-outline-success"><i class="fa-solid fa-check fa-md"></i> Dikembalikan</button>
+                        @endif
+                    </div>
                     <div class="card-body">
                         <h2 class="card-title mb-3">{{ $post->title }}</h2> 
 

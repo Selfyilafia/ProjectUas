@@ -8,8 +8,23 @@
                 <div class="card">
                     <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width: 1000px;min-height:350px;max-height:350px;">
                     <div class="card-body">
-                        <h2 class="card-title mb-3">{{ $post->title }}</h2> 
-
+                        <h2 class="card-title mb-3">{{ $post->title }}</h2>
+                        @can('user')    
+                        @if (auth()->user()->name != $post->user->name)    
+                        <form action="/klaim/{{ $post->slug }}" method="post">
+                            @csrf
+                            <div class="actions mb-2" >
+                                @if ($post->status == 'Gagal')
+                                <button type="submit" class="btn btn-warning"><i class="fa-solid fa-hand fa-md"></i> Klaim</button>
+                                @elseif($post->status == 'Diproses')
+                                <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Sedang Diajukan</button>
+                                @else
+                                <button disabled class="btn btn-outline-success"><i class="fa-solid fa-check fa-md"></i> Dikembalikan</button>
+                                @endif
+                            </div>
+                        </form>
+                        @endif 
+                        @endcan
                         <p class="card-text">
                             <small class="text-muted">
                                 <strong>{{ $post->condition->name }}</strong> Oleh <a

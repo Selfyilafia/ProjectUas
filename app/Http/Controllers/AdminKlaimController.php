@@ -16,4 +16,41 @@ class AdminKlaimController extends Controller
             'klaims' => Klaim::all()
         ]);
     }
+
+    public function selesai($id)
+    {
+        
+        $klaim = Klaim::where('id',$id)->first();
+
+        
+        $klaim->post->status = 'Selesai';
+
+        $klaim->post->save();
+
+        return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');
+    }
+    public function proses($id)
+    {
+        
+        $klaim = Klaim::where('id',$id)->first();
+
+        
+        $klaim->post->status = 'Diproses';
+
+        $klaim->post->save();
+
+        return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');
+    }
+    public function gagal($id)
+    {
+        
+        $klaim = Klaim::where('id',$id)->first();
+
+        
+        $klaim->post->status = 'Gagal';
+
+        $klaim->post->save();
+
+        return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');
+    }
 }

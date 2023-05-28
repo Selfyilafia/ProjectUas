@@ -10,6 +10,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
+@if ($posts->count())    
 <div class="table-responsive mb-3">
   <a href="/dashboard/create" class="btn btn-primary mb-3">Buat Postingan Baru</a>
     <table class="table table-striped-columns table-sm table-dark">
@@ -19,6 +20,7 @@
           <th scope="col">Nama Barang</th>
           <th scope="col">Kategori</th>
           <th scope="col">Kondisi</th>
+          <th scope="col">Status Klaim</th>
           <th scope="col">Aksi</th>  
         </tr>
       </thead>
@@ -29,6 +31,14 @@
           <td class="text-white" style="vertical-align: middle">{{ $post->title }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->category->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->condition->name }}</td>
+          @if ($post->status == 'Diproses')
+          <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled><strong>Diproses</strong></button></td>
+          @elseif($post->status == 'Selesai')
+          <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled><strong>Dikembalikan</strong></button></td>
+          @else
+          <td style="vertical-align: middle;"><button class="btn btn-outline-info" disabled><strong> Belum Diajukan</strong></button></td>
+          @endif  
+
           <td style="vertical-align: middle; width:max-content ">
             <a href="/dashboard/{{ $post->slug }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
             <a href="/dashboard/{{ $post->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -42,6 +52,9 @@
         @endforeach
       </tbody>
     </table>
-  </div>
+</div>
+@else
+<p class="text-center mt-4 fs-4">Postingan Tidak Ada</p>
+@endif        
 
 @endsection

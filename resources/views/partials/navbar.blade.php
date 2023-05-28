@@ -22,7 +22,7 @@
         </div>
         <div class="offcanvas-body text-end">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            @auth
+            @can('user')
             <li class="nav-item d-flex align-items-center justify-content-end">
               <a href="/dashboard" style="width: 100%;" class="nav-link">
               <div class="card mb-3">
@@ -39,7 +39,23 @@
               </div>
               </a>
             </li>
-            @endauth
+            <li class="nav-item d-flex align-items-center justify-content-end">
+              <a href="/klaim" style="width: 100%;" class="nav-link">
+              <div class="card mb-3">
+                <div class="row g-0">
+                  <div class="col-10">
+                    <div class="card-body">
+                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Klaim Saya</h6>
+                    </div>
+                  </div>  
+                  <div class="col-2 d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-hand fa-2xl"></i>
+                  </div>
+                </div>
+              </div>
+              </a>
+            </li>
+            @endcan
             <fieldset>
             <legend class="fs-5">Kategori</legend>
             <li class="nav-item d-flex align-items-center justify-content-end">

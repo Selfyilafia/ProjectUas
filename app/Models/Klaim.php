@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Klaim extends Model
 {
     use HasFactory;
-
+    protected $guarded = ['id'];
     public function post(){
         return $this->belongsTo(Post::class);
     }
