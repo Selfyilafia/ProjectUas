@@ -91,6 +91,28 @@
               </a>
             </li>
           </fieldset>
+          
+          @can('admin')     
+          <fieldset>
+              <legend class="fs-5">Administrator</legend>
+              <li class="nav-item d-flex align-items-center justify-content-end">
+                <a href="/klaims" style="width: 100%;" class="nav-link">
+                <div class="card mb-3">
+                  <div class="row g-0">
+                    <div class="col-10">
+                      <div class="card-body">
+                        <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Pengajuan Klaim</h6>
+                      </div>
+                    </div>  
+                    <div class="col-2 d-flex align-items-center justify-content-center">
+                      <i class="fa-solid fa-hand fa-2xl"></i>
+                    </div>
+                  </div>
+                </div>
+                </a>
+              </li>
+          </fieldset>
+          @endcan  
             {{-- <li class="nav-item d-flex align-items-center justify-content-end">
                 <div class="wrapper">
                     <form action="/posts">

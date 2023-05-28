@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\KlaimController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminKlaimController;
 
 
 /*
@@ -46,3 +47,6 @@ Route::post('/dashboard/store', [DashboardController::class, 'store'])->middlewa
 Route::get('/dashboard/{post:slug}/edit', [DashboardController::class, 'edit'])->middleware('auth');
 Route::put('/dashboard/{post:slug}/update', [DashboardController::class, 'update'])->middleware('auth');
 Route::delete('/dashboard/delete/{post:slug}', [DashboardController::class, 'destroy'])->middleware('auth');
+
+//admin
+Route::get('/klaims', [AdminKlaimController::class, 'index'])->middleware('admin');
