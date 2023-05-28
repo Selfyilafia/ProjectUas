@@ -23,10 +23,11 @@ class AdminKlaimController extends Controller
         $klaim = Klaim::where('id',$id)->first();
 
         
-        $klaim->post->status = 'Selesai';
-
+        $klaim->status_id = 3;
+        $klaim->post->status_id = 3;
+        
+        $klaim->save();
         $klaim->post->save();
-
         return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');
     }
     public function proses($id)
@@ -35,8 +36,10 @@ class AdminKlaimController extends Controller
         $klaim = Klaim::where('id',$id)->first();
 
         
-        $klaim->post->status = 'Diproses';
-
+        $klaim->status_id = 2;
+        $klaim->post->status_id = 2;
+        
+        $klaim->save();
         $klaim->post->save();
 
         return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');
@@ -47,8 +50,10 @@ class AdminKlaimController extends Controller
         $klaim = Klaim::where('id',$id)->first();
 
         
-        $klaim->post->status = 'Gagal';
-
+        $klaim->status_id = 1;
+        $klaim->post->status_id = 1;
+        
+        $klaim->save();
         $klaim->post->save();
 
         return redirect('/klaims')->with('success', 'Pengajuan klaim sudah terupdate');

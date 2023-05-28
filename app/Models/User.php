@@ -51,4 +51,5 @@ class User extends Authenticatable
     public function klaims(){
         return $this->hasMany(Klaim::class);
     }
+    
 }

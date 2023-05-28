@@ -33,12 +33,12 @@
           <td class="text-white" style="vertical-align: middle">{{ $klaim->post->condition->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $klaim->post->user->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $klaim->user->name }}</td>
-          @if ($klaim->post->status == 'Diproses')
-          <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled>{{ $klaim->post->status }}</button></td>
-          @elseif($klaim->post->status == 'Selesai')
-          <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled>{{ $klaim->post->status }}</button></td>
+          @if ($klaim->status_id == 2)
+          <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled>{{ $klaim->status->name }}</button></td>
+          @elseif($klaim->status_id == 3)
+          <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled>{{ $klaim->status->name }}</button></td>
           @else
-          <td style="vertical-align: middle;"><button class="btn btn-outline-danger" disabled><strong>{{ $klaim->post->status }}</strong></button></td>
+          <td style="vertical-align: middle;"><button class="btn btn-outline-danger" disabled><strong>{{ $klaim->status->name }}</strong></button></td>
           @endif  
 
         </tr>

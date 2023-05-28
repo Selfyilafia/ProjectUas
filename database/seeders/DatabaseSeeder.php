@@ -5,8 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Post;
 use App\Models\User;
-use App\Models\Category;
+use App\Models\Status;
 
+use App\Models\Category;
 use App\Models\Condition;
 use Illuminate\Database\Seeder;
 
@@ -75,6 +76,16 @@ class DatabaseSeeder extends Seeder
         Condition::create([
             'name' => 'Ditemukan',
             'slug' => 'ditemukan'
+        ]);
+
+        Status::create([
+            'name' => 'Gagal'
+        ]);
+        Status::create([
+            'name' => 'Diproses'
+        ]);
+        Status::create([
+            'name' => 'Selesai'
         ]);
 
         Post::create([

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use App\Models\User;
+use App\Models\Status;
 use App\Models\Category;
 use App\Models\Condition;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
@@ -49,6 +50,9 @@ class Post extends Model
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function status(){
+        return $this->belongsTo(Status::class);
     }
     public function klaims(){
         return $this->hasMany(Klaim::class);

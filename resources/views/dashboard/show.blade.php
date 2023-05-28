@@ -16,9 +16,9 @@
                           </form>
                     </div>
                     <div class="actions mx-3 mt-3">
-                        @if ($post->status == 'Gagal')
+                        @if ($post->status_id == 1)
                         <button disabled class="btn btn-outline-info"><i class="fa-solid fa-hand fa-md"></i> Belum Diajukan</button>
-                        @elseif($post->status == 'Diproses')
+                        @elseif($post->status_id == 2)
                         <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Sedang Diajukan</button>
                         @else
                         <button disabled class="btn btn-outline-success"><i class="fa-solid fa-check fa-md"></i> Dikembalikan</button>

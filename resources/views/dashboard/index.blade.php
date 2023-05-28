@@ -10,9 +10,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
-@if ($posts->count())    
-<div class="table-responsive mb-3">
-  <a href="/dashboard/create" class="btn btn-primary mb-3">Buat Postingan Baru</a>
+        <div class="table-responsive mb-3">
+          <a href="/dashboard/create" class="btn btn-primary mb-3">Buat Postingan Baru</a>
+          @if ($posts->count())    
     <table class="table table-striped-columns table-sm table-dark">
       <thead class="text-center">
         <tr>
@@ -31,9 +31,9 @@
           <td class="text-white" style="vertical-align: middle">{{ $post->title }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->category->name }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->condition->name }}</td>
-          @if ($post->status == 'Diproses')
+          @if ($post->status_id == 2)
           <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled><strong>Diproses</strong></button></td>
-          @elseif($post->status == 'Selesai')
+          @elseif($post->status_id == 3)
           <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled><strong>Dikembalikan</strong></button></td>
           @else
           <td style="vertical-align: middle;"><button class="btn btn-outline-info" disabled><strong> Belum Diajukan</strong></button></td>

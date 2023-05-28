@@ -16,11 +16,11 @@ return new class extends Migration
             $table->foreignId('category_id');
             $table->foreignId('user_id');
             $table->foreignId('condition_id');
+            $table->foreignId('status_id')->default(1);
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->text('body');
-            $table->enum('status',['Gagal','Diproses','Selesai'])->default('Gagal');
             $table->timestamps();
         });
     }

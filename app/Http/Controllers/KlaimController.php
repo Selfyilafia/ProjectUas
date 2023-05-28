@@ -32,12 +32,13 @@ class KlaimController extends Controller
 
         // Tambahkan klaim ke klaim pengguna
         
-        $post->status = 'Diproses';
+        $post->status_id = 2;
 
         $post->save();
         Klaim::create([
             'post_id' => $post->id,
             'user_id' => $user->id,
+            'status_id'=> 2,
         ]);
 
         return redirect('/')->with('success', 'Postingan berhasil ditambahkan ke klaim anda');
