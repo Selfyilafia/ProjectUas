@@ -42,24 +42,28 @@
           <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled>{{ $klaim->status->name }}</button></td>
           @else
           <td style="vertical-align: middle;"><button class="btn btn-outline-danger" disabled><strong>{{ $klaim->status->name }}</strong></button></td>
-          @endif  
+          @endif
+          @if ($klaim->status_id == 2)    
           <td style="vertical-align: middle; width:max-content ">
             <form action="klaims/selesai/{{ $klaim->id }}" method="post" class="d-inline">
               @method('put')
               @csrf
               <button type="submit" class="btn btn-info"><i class="fa-solid fa-check"></i></button>
             </form>
-            <form action="klaims/proses/{{ $klaim->id }}" method="post" class="d-inline">
+            {{-- <form action="klaims/proses/{{ $klaim->id }}" method="post" class="d-inline">
               @method('put')
               @csrf
             <button type="submit" class="btn btn-warning"><i class="fa-solid fa-clock"></i></button>
-            </form>
+            </form> --}}
             <form action="klaims/gagal/{{ $klaim->id }}" method="post" class="d-inline">
               @method('put')
               @csrf
             <button type="submit" class="btn btn-danger"><i class="fa-solid fa-xmark" style="color: #000000;"></i></button>
             </form>
           </td>
+          @else
+          <td style="vertical-align: middle; width:max-content "></td>
+          @endif  
         </tr>
         @endforeach
       </tbody>

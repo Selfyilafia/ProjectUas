@@ -66,7 +66,7 @@
             <div class="row">
                 @foreach($posts as $post)
                     <div class="col-md-4 mb-2" style="opacity: 85%;">
-                        <div class="card" style="min-height: 600px; max-height :700px;overflow:hidden;">
+                        <div class="card" style="min-height: 630px; max-height :700px;overflow:hidden;">
                             <div class="position-absolute bg-dark px-3 py-2 text-white rounded">{{ $post->condition->name }}</div>
                             <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="min-width: 350px;max-width:500px;min-height:250px;max-height:250px;">
                             <div class="card-body">
@@ -78,20 +78,27 @@
                                         class="text-decoration-none text-dark">{{ $post->title }}
                                     </a>
                                 </h4>
-                                </div>
-                                <p class="card-text" style="min-height: 65px; max-height: 50px; overflow:hidden;display: -webkit-box;
+                            </div>
+                            <p class="card-text" style="min-height: 65px; max-height: 50px; overflow:hidden;display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical; text-overflow:ellipsis;">
                                     <small class="text-muted">
                                         <strong>{{ $post->condition->name }}</strong> Oleh <a
-                                            href="/posts?user={{ $post->user->nim }}"
-                                            class="text-decoration-none">{{ $post->user->name }}</a> : <a
-                                            href="/posts?category={{ $post->category->slug }}"
-                                            class="text-decoration-none">{{ $post->category->name }}</a>
+                                        href="/posts?user={{ $post->user->nim }}"
+                                        class="text-decoration-none">{{ $post->user->name }}</a> : <a
+                                        href="/posts?category={{ $post->category->slug }}"
+                                        class="text-decoration-none">{{ $post->category->name }}</a>
                                         {{ $post->created_at->diffForHumans() }}
                                     </small>
                                 </p>
-                                <p class="card-text" style="max-height: 50px; overflow:hidden;display: -webkit-box;
+                                @if($post->status_id == 2)
+                                <button disabled class="btn btn-outline-warning border-0"><i class="fa-solid fa-clock fa-md"></i> Diproses</button>
+                                @elseif($post->status_id == 3)
+                                <button disabled class="btn btn-outline-success border-0"><i class="fa-solid fa-check fa-md"></i> Dikembalikan</button>
+                                @else
+                                <button disabled class="btn btn-outline-info border-0"><i class="fa-solid fa-hand fa-md"></i> Belum Ada Pengajuan</button>
+                                @endif
+                                <p class="card-text mt-4" style="max-height: 50px; overflow:hidden;display: -webkit-box;
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical; text-overflow:ellipsis; ">{{ strip_tags($post->body) }}</p>
                             </div>
