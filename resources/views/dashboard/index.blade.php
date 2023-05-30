@@ -42,10 +42,11 @@
           <td style="vertical-align: middle; width:max-content ">
             <a href="/dashboard/{{ $post->slug }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
             <a href="/dashboard/{{ $post->slug }}/edit" class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-            <form action="dashboard/delete/{{ $post->slug }}" method="post" class="d-inline">
+            <form action="dashboard/delete/{{ $post->slug }}" method="post" class="d-inline" id="deleteForm">
               @method('delete')
               @csrf
-              <button type="submit" class="btn btn-danger border-0" onclick="return confirm('Are You Sure?')"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
+              <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
+              <button type="submit" class="btn btn-danger border-0" onclick="confirmDelete(event)"><i class="fa-solid fa-trash" style="color: #000000;"></i></button>
             </form>
           </td>
         </tr>
@@ -56,5 +57,55 @@
 @else
 <p class="text-center mt-4 fs-4">Postingan Tidak Ada</p>
 @endif        
+
+<!-- Modal Konfirmasi Delete -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Konfirmasi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Anda Yakin Ingin Menghapus Postingan Ini</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    onclick="setDeleteConfirmed(0)">Batal</button>
+                <button type="button" class="btn btn-danger" onclick="setDeleteConfirmed(1)"
+                    data-bs-dismiss="modal">Hapus</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Fungsi untuk mengatur nilai konfirmasi penghapusan
+    function setDeleteConfirmed(value) {
+        document.getElementById('deleteConfirmed').value = value;
+    }
+
+    // Fungsi untuk menampilkan modal konfirmasi penghapusan
+    function confirmDelete(event) {
+        event.preventDefault();
+
+        // Tampilkan modal konfirmasi
+        $('#confirmDeleteModal').modal('show');
+
+        // Tambahkan event listener untuk menangani konfirmasi penghapusan
+        $('#confirmDeleteModal').on('hidden.bs.modal', function (e) {
+            // Dapatkan nilai konfirmasi
+            const confirmed = $('#deleteConfirmed').val();
+
+            // Lanjutkan dengan penghapusan jika dikonfirmasi
+            if (confirmed === '1') {
+                document.getElementById('deleteForm').submit();
+            }
+        });
+    }
+</script>
 
 @endsection

@@ -24,7 +24,7 @@ Route::get('/', [PostController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 
 //halaman single post
-Route::get('/posts/{post:slug}', [PostController::class,'show']);
+Route::get('/posts/{post:slug}', [PostController::class,'show'])->middleware('auth');
 
 // Route::get('/categories', [CategoryController::class, 'index']);
 

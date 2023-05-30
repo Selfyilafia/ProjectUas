@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Klaim;
 use App\Models\Category;
 use App\Models\Condition;
 use Illuminate\Http\Request;
@@ -122,6 +123,7 @@ class DashboardController extends Controller
             Storage::delete($post->image);
         }
         Post::destroy($post->id);
+        Klaim::where('post_id', $post->id)->delete();
         return redirect('/dashboard')->with('success', 'Postingan berhasil dihapus');
 
     }
