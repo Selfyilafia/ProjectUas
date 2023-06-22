@@ -10,7 +10,7 @@ class KlaimController extends Controller
 {
     public function index()
     {
-        
+
         return view('klaim.index',[
             "title" => "Klaim Saya",
             'klaims' => Klaim::where('user_id', auth()->user()->id)->latest()->get()
@@ -20,7 +20,7 @@ class KlaimController extends Controller
     {
         $user = $request->user(); // Mendapatkan data pengguna yang sedang terautentikasi
         $post = Post::where('slug',$slug)->first();
- 
+
         // Cek apakah barang sudah ada di klaim pengguna
         $existingKlaim = Klaim::where('post_id', $post->id)
             ->where('user_id', $user->id)
@@ -31,7 +31,7 @@ class KlaimController extends Controller
         }
 
         // Tambahkan klaim ke klaim pengguna
-        
+
         $post->status_id = 2;
 
         $post->save();
@@ -41,6 +41,6 @@ class KlaimController extends Controller
             'status_id'=> 2,
         ]);
 
-        return redirect('/')->with('success', 'Postingan berhasil ditambahkan ke klaim anda');
+        return redirect('/')->with('success', 'Produk berhasil ditambahkan ke keranjang anda');
     }
 }

@@ -9,13 +9,13 @@
                     <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width: 1200px;min-height:350px;max-height:350px;">
                     <div class="card-body">
                         <h2 class="card-title mb-3">{{ $post->title }}</h2>
-                        
-                        @if ((auth()->user()->name != $post->user->name || $post->status->id != 1) && !auth()->user()->is_admin)    
+
+                        @if ((auth()->user()->name != $post->user->name || $post->status->id != 1) && !auth()->user()->is_admin)
                         <form action="/klaim/{{ $post->slug }}" method="post">
                             @csrf
                             <div class="actions mb-2" >
                                 @if ($post->status_id == 1)
-                                <button type="submit" class="btn btn-warning"><i class="fa-solid fa-hand fa-md"></i> Klaim</button>
+                                <button type="submit" class="btn btn-warning"><i class="fa-solid fa-hand fa-md"></i> Masuk keranjang</button>
                                 @elseif($post->status_id == 2)
                                 <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Diproses</button>
                                 @else
@@ -23,11 +23,11 @@
                                 @endif
                             </div>
                         </form>
-                        @endif 
-                        
+                        @endif
+
                         <p class="card-text">
                             <small class="text-muted">
-                                <strong>{{ $post->condition->name }}</strong> Oleh <a
+                                <strong>{{ $post->condition->name }}</strong> Toko <a
                                 href="/posts?user={{ $post->user->nim }}"
                                 class="text-decoration-none">{{ $post->user->name }}</a> : <a
                                     href="/posts?category={{ $post->category->slug }}"

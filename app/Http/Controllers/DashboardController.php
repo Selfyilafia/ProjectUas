@@ -128,6 +128,16 @@ class DashboardController extends Controller
 
     }
 
+    // public function showPhoto($filename)
+    // {
+    //     $path = 'photos/' . $filename;
+    //     $file = Storage::disk('local')->get($path);
+    //     $type = Storage::disk('local')->mimeType($path);
+
+    //     return response($file, 200)->header('Content-Type', $type);
+    // }
+
+
     public function checkSlug(Request $request)
     {
         $slug =SlugService::createSlug(Post::class,'slug', $request->title);

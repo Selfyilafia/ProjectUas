@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
             <div class="col-md-10 mb-4" style="opacity: 90%;">
                 <div class="card">
+                    {{-- <img src="{{ route('photo.show', ['filename' => $post->image]) }}"  class="card-img-top" alt="{{ $post->title }}" style="max-width: 1000px;min-height:350px;max-height:350px;"> --}}
                     <img src="{{ asset('storage/'. $post->image) }}" class="card-img-top" alt="{{ $post->title }}" style="max-width: 1000px;min-height:350px;max-height:350px;">
                     <div class="mx-3">
                         <a href="/dashboard" class=" mt-2 btn btn-success"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i> Kembali</a>
@@ -18,19 +19,19 @@
                     </div>
                     <div class="actions mx-3 mt-3">
                         @if ($post->status_id == 1)
-                        <button disabled class="btn btn-outline-info"><i class="fa-solid fa-hand fa-md"></i> Belum Diajukan</button>
+                        <button disabled class="btn btn-outline-info"><i class="fa-solid fa-hand fa-md"></i> Diproses</button>
                         @elseif($post->status_id == 2)
-                        <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Sedang Diajukan</button>
+                        <button disabled class="btn btn-outline-warning"><i class="fa-solid fa-clock fa-md"></i> Habis</button>
                         @else
-                        <button disabled class="btn btn-outline-success"><i class="fa-solid fa-check fa-md"></i> Dikembalikan</button>
+                        <button disabled class="btn btn-outline-success"><i class="fa-solid fa-check fa-md"></i> Belum Ada Pesanan</button>
                         @endif
                     </div>
                     <div class="card-body">
-                        <h2 class="card-title mb-3">{{ $post->title }}</h2> 
+                        <h2 class="card-title mb-3">{{ $post->title }}</h2>
 
                         <p class="card-text">
                             <small class="text-muted">
-                                <strong>{{ $post->condition->name }}</strong> Oleh <a
+                                <strong>{{ $post->condition->name }}</strong> Toko <a
                                 href="/posts?user={{ $post->user->nim }}"
                                 class="text-decoration-none">{{ $post->user->name }}</a> : <a
                                     href="/posts?category={{ $post->category->slug }}"
@@ -42,7 +43,7 @@
                             {!! $post->body !!}
                         </article>
                     </div>
-                    
+
                 </div>
             </div>
     </div>
@@ -58,7 +59,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Anda Yakin Ingin Menghapus Postingan Ini</p>
+                <p>Anda Yakin Ingin Menghapus Produk Ini</p>
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">

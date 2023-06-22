@@ -4,7 +4,7 @@
      <h1 class="text-center">Pengajuan Klaim</h1>
 </div>
         @if (session()->has('success'))
-          
+
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -16,17 +16,17 @@
       <thead class="text-center">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Barang</th>
+          <th scope="col">Nama Produk</th>
           <th scope="col">Kategori</th>
-          <th scope="col">Kondisi</th>
-          <th scope="col">Pemilik Postingan</th>   
-          <th scope="col">Pengaju Klaim</th>  
-          <th scope="col">Status</th>  
-          <th scope="col">Aksi</th>  
+          <th scope="col">Paket</th>
+          <th scope="col">Pemilik Postingan</th>
+          <th scope="col">Pengaju Klaim</th>
+          <th scope="col">Status</th>
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
       <tbody class="text-center">
-        @foreach ($klaims as $klaim)    
+        @foreach ($klaims as $klaim)
         <tr>
           <td class="text-white" style="vertical-align: middle">{{ $loop->iteration }}</td>
           <td class="text-white" style="vertical-align: middle"><a href="/posts/{{ $klaim->post->slug }}" class="text-white">{{ $klaim->post->title }}</a></td>
@@ -41,7 +41,7 @@
           @else
           <td style="vertical-align: middle;"><button class="btn btn-outline-danger" disabled><strong>{{ $klaim->status->name }}</strong></button></td>
           @endif
-          @if ($klaim->status_id == 2)    
+          @if ($klaim->status_id == 2)
           <td style="vertical-align: middle; width:max-content ">
             <form action="klaims/selesai/{{ $klaim->id }}" method="post" class="d-inline">
               @method('put')
@@ -56,7 +56,7 @@
           </td>
           @else
           <td style="vertical-align: middle; width:max-content "></td>
-          @endif  
+          @endif
         </tr>
         @endforeach
       </tbody>
@@ -64,7 +64,7 @@
   </div>
 
   @else
-  <p class="text-center mt-4 fs-4">Belum Ada Klaim yang Diajukan</p>  
-@endif        
+  <p class="text-center mt-4 fs-4">Belum Ada Klaim yang Diajukan</p>
+@endif
 
 @endsection

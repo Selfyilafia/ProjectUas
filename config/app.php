@@ -70,8 +70,6 @@ return [
     |
     */
 
-    'timezone' => env('TIMEZONE','id'),
-
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration

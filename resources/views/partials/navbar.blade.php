@@ -1,8 +1,8 @@
 <nav class="navbar navbar-dark bg-transparent">
     <div class="container-fluid">
       <a class="navbar-brand" href="/posts">
-        <img src="/img/logo.png" alt="Logo" width="50"class="d-inline">
-        <h4 class="text-dark d-inline" style="vertical-align: -webkit-baseline-middle;">UNJA LAPOR HILANG</h4>
+        <img src="/img/logo.jpg" alt="Logo" width="150"class="d-inline">
+        <h4 class="text-dark d-inline" style="vertical-align: -webkit-baseline-middle;"></h4>
       </a>
       <button class="navbar-toggler toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation" style="position: absolute; top: 0; right:0;">
         <span class="fa-solid fa-bars fa-xl py-3" style="color: #000000;"></span>
@@ -18,7 +18,7 @@
           @else
           <a href="/login" class="offcanvas-title nav-link" id="offcanvasDarkNavbarLabel" style="font-weight: 400;"><i class="fa-solid fa-right-to-bracket fa-md"></i> &nbsp;&nbsp;Login</a>
           @endauth
-          
+
         </div>
         <div class="offcanvas-body text-end">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
@@ -29,11 +29,10 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Postingan Saya</h6>
+                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Produk Saya</h6>
                     </div>
-                  </div>  
+                  </div>
                   <div class="col-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-file-lines fa-2xl"></i>
                   </div>
                 </div>
               </div>
@@ -45,11 +44,10 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Klaim Saya</h6>
+                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Keranjang Saya</h6>
                     </div>
-                  </div>  
+                  </div>
                   <div class="col-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-hand fa-2xl"></i>
                   </div>
                 </div>
               </div>
@@ -64,11 +62,10 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Perangkat Elektronik</h6>
+                      <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Makanan & Minuman</h6>
                     </div>
-                  </div>  
+                  </div>
                   <div class="col-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-tablet fa-2xl"></i>
                   </div>
                 </div>
               </div>
@@ -80,11 +77,10 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start">Perhiasan</h6>
+                      <h6 class="card-title d-flex justify-content-start">Nasi Kotak</h6>
                     </div>
                   </div>
                   <div class="col-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-gem fa-2xl"></i>
                   </div>
                 </div>
               </div>
@@ -96,19 +92,18 @@
                 <div class="row g-0">
                   <div class="col-10">
                     <div class="card-body">
-                      <h6 class="card-title d-flex justify-content-start">Dokumen Penting</h6>
+                      <h6 class="card-title d-flex justify-content-start">Prasmanan</h6>
                     </div>
                   </div>
                   <div class="col-2 d-flex align-items-center justify-content-center">
-                    <i class="fa-solid fa-wallet fa-2xl"></i>
                   </div>
                 </div>
               </div>
               </a>
             </li>
           </fieldset>
-          
-          @can('admin')     
+
+          @can('admin')
           <fieldset>
               <legend class="fs-5">Administrator</legend>
               <li class="nav-item d-flex align-items-center justify-content-end">
@@ -119,7 +114,7 @@
                       <div class="card-body">
                         <h6 class="card-title d-flex justify-content-start" style="width: max-content;">Pengajuan Klaim</h6>
                       </div>
-                    </div>  
+                    </div>
                     <div class="col-2 d-flex align-items-center justify-content-center">
                       <i class="fa-solid fa-hand fa-2xl"></i>
                     </div>
@@ -128,10 +123,10 @@
                 </a>
               </li>
           </fieldset>
-          @endcan  
+          @endcan
           </ul>
         </div>
-        
+
        @auth
        <div class="user" style="padding-top: 5%">
        <a class="fs-5 offcanvas-title nav-link text-end" id="offcanvasDarkNavbarLabel" style="font-weight: 400;margin-bottom:10%; margin-right:5%;">{{ auth()->user()->name }} &nbsp; <i class="fa-solid fa-circle-user fa-2xl"></i></a>

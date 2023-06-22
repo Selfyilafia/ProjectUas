@@ -4,28 +4,28 @@
      <h1 class="text-center">Postingan {{ auth()->user()->name }}</h1>
 </div>
         @if (session()->has('success'))
-          
+
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
         @endif
         <div class="table-responsive mb-3">
-          <a href="/dashboard/create" class="btn btn-primary mb-3">Buat Postingan Baru</a>
-          @if ($posts->count())    
+          <a href="/dashboard/create" class="btn btn-primary mb-3">Tambah Produk Baru</a>
+          @if ($posts->count())
     <table class="table table-striped-columns table-sm table-dark">
       <thead class="text-center">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Barang</th>
+          <th scope="col">Nama Produk</th>
           <th scope="col">Kategori</th>
-          <th scope="col">Kondisi</th>
+          <th scope="col">Paket</th>
           <th scope="col">Status Klaim</th>
-          <th scope="col">Aksi</th>  
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
       <tbody class="text-center">
-        @foreach ($posts as $post)    
+        @foreach ($posts as $post)
         <tr>
           <td class="text-white" style="vertical-align: middle">{{ $loop->iteration }}</td>
           <td class="text-white" style="vertical-align: middle">{{ $post->title }}</td>
@@ -34,10 +34,10 @@
           @if ($post->status_id == 2)
           <td class="text-white" style="vertical-align: middle;"><button class="btn btn-outline-warning" disabled><strong>Diproses</strong></button></td>
           @elseif($post->status_id == 3)
-          <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled><strong>Dikembalikan</strong></button></td>
+          <td style="vertical-align: middle;"><button class="btn btn-outline-success" disabled><strong>Habis</strong></button></td>
           @else
-          <td style="vertical-align: middle;"><button class="btn btn-outline-info" disabled><strong> Belum Diajukan</strong></button></td>
-          @endif  
+          <td style="vertical-align: middle;"><button class="btn btn-outline-info" disabled><strong> Belum ada pesanan</strong></button></td>
+          @endif
 
           <td style="vertical-align: middle; width:max-content ">
             <a href="/dashboard/{{ $post->slug }}" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
@@ -55,8 +55,8 @@
     </table>
 </div>
 @else
-<p class="text-center mt-4 fs-4">Postingan Tidak Ada</p>
-@endif        
+<p class="text-center mt-4 fs-4">Produk Tidak Ada</p>
+@endif
 
 <!-- Modal Konfirmasi Delete -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
@@ -68,7 +68,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Anda Yakin Ingin Menghapus Postingan Ini</p>
+                <p>Anda Yakin Ingin Menghapus Produk Ini</p>
             </div>
             <div class="modal-footer">
                 <input type="hidden" name="confirmed" id="deleteConfirmed" value="0">

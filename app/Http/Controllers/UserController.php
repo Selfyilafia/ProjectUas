@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function show(User $user){
         return view('posts',[
-            "title"=>"UNJA Lapor Hilang | $user->name",
+            "title"=>"Home Catering | $user->name",
             'posts'=>$user->posts->load('category','user','condition')
         ]);
     }

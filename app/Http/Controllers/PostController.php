@@ -11,8 +11,11 @@ class PostController extends Controller
         // dd(request('search'));
 
         return view('posts',[
-            "title"=>"UNJA Lapor Hilang",
-            "posts"=> Post::latest()->filter(request(['search', 'category','user']))->paginate(6)->withQueryString()
+            "title"=>"Home Catering",
+            "posts"=> Post::latest()
+            ->filter(request(['search', 'category','user']))
+            ->paginate(6)
+            ->withQueryString()
         ]);
     }
 

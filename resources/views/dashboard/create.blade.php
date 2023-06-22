@@ -1,13 +1,13 @@
 @extends('layouts.main')
 @section('container')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom border-dark">
-    <h1 class="text-center">Buat Postingan Baru</h1>
+    <h1 class="text-center">Tambah Produk Baru</h1>
 </div>
 <div class="col-lg-8">
     <form action="store" method="post" class="mb-5" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
-          <label for="title" class="form-label">Nama Barang</label>
+          <label for="title" class="form-label">Nama Produk</label>
           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}">
           @error('title')
               <div class="invalid-feedback">
@@ -25,20 +25,20 @@
             @if (old('category_id') == $category->id)
             <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
             @else
-            <option value="{{ $category->id }}">{{ $category->name }}</option>    
-            @endif    
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endif
             @endforeach
           </select>
         </div>
         <div class="mb-3">
-          <label for="condition" class="form-label">Kondisi</label>
+          <label for="condition" class="form-label">Paket</label>
           <select class="form-select" name="condition_id" required>
             @foreach ($conditions as $condition)
             @if (old('condition_id') == $condition->id)
             <option value="{{ $condition->id }}" selected>{{ $condition->name }}</option>
             @else
-            <option value="{{ $condition->id }}">{{ $condition->name }}</option>    
-            @endif    
+            <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+            @endif
             @endforeach
           </select>
         </div>
@@ -61,10 +61,10 @@
                 {{ $message }}
               </p>
           @enderror
-            
+
         </div>
-        
-        <button type="submit" class="btn btn-primary mb-3">Buat Postingan</button>
+
+        <button type="submit" class="btn btn-primary mb-3">Tambah Produk</button>
     </form>
 </div>
 

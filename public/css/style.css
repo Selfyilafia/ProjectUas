@@ -1,7 +1,7 @@
 body {
     padding: 0;
     margin: 0;
-    background: url("/img/back.png");
+    background: #fff0d8 !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -13,6 +13,10 @@ body {
     height: 100vh;
 }
  */
+
+.navbar{
+    background-color: #ffffff !important;
+}
 
 .jdl {
     /* display: block; */
@@ -99,7 +103,7 @@ body {
     width: 20px;
 }
 .toggle {
-    background-image: linear-gradient(to right, orange, white);
+    background-image: linear-gradient(to right, rgb(238, 227, 205), white);
 }
 .coba,
 #offcanvasExample {

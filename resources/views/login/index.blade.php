@@ -5,7 +5,7 @@
     <div class="col-lg-4">
         <main class="form-signin w-100 m-auto">
           @if (session()->has('success'))
-          
+
           <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{ session('success') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -13,7 +13,7 @@
           @endif
 
           @if (session()->has('loginError'))
-          
+
           <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>{{ session('loginError') }}</strong>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -24,9 +24,9 @@
             <form action="/login" method="post">
               @csrf
               <div class="form-floating">
-                <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" id="nim" placeholder="NIM/NIP" autofocus required value="{{ old('nim') }}">
-                <label for="nim">NIM/NIP</label>
-                @error('nim')
+                <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Email" autofocus required value="{{ old('email') }}">
+                <label for="email">Email</label>
+                @error('email')
                     <div class="invalid-feedback">
                       {{ $message }}
                     </div>

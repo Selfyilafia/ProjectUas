@@ -8,7 +8,7 @@
         @method('put')
         @csrf
         <div class="mb-3">
-          <label for="title" class="form-label">Nama Barang</label>
+          <label for="title" class="form-label">Nama Produk</label>
           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title', $post->title) }}">
           @error('title')
               <div class="invalid-feedback">
@@ -26,20 +26,20 @@
             @if (old('category_id', $post->category_id) == $category->id)
             <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
             @else
-            <option value="{{ $category->id }}">{{ $category->name }}</option>    
-            @endif    
+            <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endif
             @endforeach
           </select>
         </div>
         <div class="mb-3">
-          <label for="condition" class="form-label">Kondisi</label>
+          <label for="condition" class="form-label">Paket</label>
           <select class="form-select" name="condition_id" required>
             @foreach ($conditions as $condition)
             @if (old('condition_id', $post->condition_id) == $condition->id)
             <option value="{{ $condition->id }}" selected>{{ $condition->name }}</option>
             @else
-            <option value="{{ $condition->id }}">{{ $condition->name }}</option>    
-            @endif    
+            <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+            @endif
             @endforeach
           </select>
         </div>
@@ -64,10 +64,10 @@
                 {{ $message }}
               </p>
           @enderror
-            
+
         </div>
-        
-        <button type="submit" class="btn btn-primary mb-3">Update Postingan</button>
+
+        <button type="submit" class="btn btn-primary mb-3">Update Produk</button>
     </form>
 </div>
 

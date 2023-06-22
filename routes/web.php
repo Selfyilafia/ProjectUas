@@ -33,6 +33,9 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
+
+// Route::get('/photos/{filename}', [DashboardController::class, 'showPhoto'])->name('photo.show');
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::get('/dashboard/create', [DashboardController::class, 'create'])->middleware('auth');
 Route::get('/dashboard/{post:slug}', [DashboardController::class, 'show'])->middleware('auth');
